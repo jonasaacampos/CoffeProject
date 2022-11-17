@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Curso de JavaScript</title>
+    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Hepta+Slab:400,700|Lato:400,700&display=swap" rel="stylesheet">
+   
+
+</head>
+
+<body> 
+    <!-- Card de modelo, que serÃ¡ preenchido pelo javascript -->
+    <div class="models">
+        <div class="coffe-item">
+            <a href="">
+                <div class="coffe-item--img"><img src="" /></div>
+                <div class="coffe-item--add">+</div>
+            </a>
+            <div class="coffe-item--price">R$ --</div>
+            <div class="coffe-item--name">--</div>
+            <div class="coffe-item--desc">--</div>
+        </div>
+
+<!-- Carrinho DADOS-->
+        <div class="cart--item">
+            <img src="" />
+            <div class="cart--item-nome">--</div>
+            <div class="cart--item--qtarea">
+                <button class="cart--item-qtmenos">-</button>
+                <div class="cart--item--qt">1</div>
+                <button class="cart--item-qtmais">+</button>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="menu-openner"><span>0</span>&#128722;</div>
+    </header>
+
+    <main>
+        <h1>coffes</h1>
+        <div class="coffe-area"></div>
+    </main>
+
+    <!-- Carrinho AREA-->
+    <aside>
+        <div class="cart--area">
+            <div class="menu-closer">&#10060;</div>
+            <h1>Seu pedido</h1>
+            <div class="cart"></div>
+            <div class="cart--details">
+                <div class="cart--totalitem subtotal">
+                    <span>Subtotal</span>
+                    <span>R$ --</span>
+                </div>
+                <div class="cart--totalitem desconto">
+                    <span>Desconto (-10%)</span>
+                    <span>R$ --</span>
+                </div>
+                <div class="cart--totalitem total big">
+                    <span>Total</span>
+                    <span>R$ --</span>
+                </div>
+                <div class="cart--finalizar">Finalizar a compra</div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- MODAL -->
+    <div class="coffeWindowArea">
+        <div class="coffeWindowBody">
+            <div class="coffeInfo--cancelMobileButton">Voltar</div>
+            <div class="coffeBig">
+                <img src="" />
+            </div>
+            <div class="coffeInfo">
+                <h1>--</h1>
+                <div class="coffeInfo--desc">--</div>
+                <div class="coffeInfo--sizearea">
+                    <div class="coffeInfo--sector">Tamanho</div>
+                    <div class="coffeInfo--sizes">
+                        <div data-key="0" class="coffeInfo--size">Pessoas normais <span> </span></div>
+                        <div data-key="1" class="coffeInfo--size">Hora de acordar <span> </span></div>
+                        <div data-key="2" class="coffeInfo--size selected">Espartana <span> </span></div>
+                    </div>
+                </div>
+                <div class="coffeInfo--pricearea">
+                    <div class="coffeInfo--sector">Preço</div>
+                    <div class="coffeInfo--price">
+                        <div class="coffeInfo--actualPrice">R$</div>
+                        <div class="coffeInfo--qtarea">
+                            <button class="coffeInfo--qtmenos">-</button>
+                            <div class="coffeInfo--qt">1</div>
+                            <button class="coffeInfo--qtmais">+</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="coffeInfo--addButton">Adicionar ao carrinho</div>
+                <div class="coffeInfo--cancelButton">Cancelar</div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="coffes.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+</html>
