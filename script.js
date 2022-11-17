@@ -134,11 +134,13 @@ function updateCarrinho() {
 
     QS('.menu-openner span').innerHTML = carrinho.length;
 
-    if (carrinho) {
+    if (carrinho.length != 0) {
         QS('aside').classList.add('show');
         QS('.cart').innerHTML = '';
         
-        let subtotal, desconto, total;
+        let subtotal = 0
+        let desconto = 0
+        let total = 0
 
 
         //procura o id e retorna o array inteiro caso exista
@@ -175,8 +177,8 @@ function updateCarrinho() {
                     carrinho[i].qt--;
                 } else {
                     carrinho.splice(i, 1);
+                    updateCarrinho();
                 }
-                updateCarrinho();
 
             });
 
@@ -194,7 +196,6 @@ function updateCarrinho() {
         QS('.subtotal span:last-child').innerHTML = `R$ ${subtotal.toFixed(2)}`;
         QS('.desconto span:last-child').innerHTML = `R$ ${desconto.toFixed(2)}`;
         QS('.total span:last-child').innerHTML = `R$ ${total.toFixed(2)}`;
-        
         
     //caso carrinho vazio, fecha visualização...
     }  else {

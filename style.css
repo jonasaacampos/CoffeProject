@@ -60,6 +60,8 @@ main {
 }
 h1 {
     font-family:'Hepta Slab', Helvetica, Arial;
+    padding-bottom: 30px;
+    text-align: center;
 }
 .coffe-area {
     display:grid;
@@ -329,16 +331,22 @@ h1 {
 .cart--finalizar {
     padding:20px 30px;
     border-radius:20px;
-    background-color:#48d05f;
+    background-color:#000000;
     color:#FFF;
     cursor:pointer;
     text-align:center;
     margin-top:20px;
-    border:2px solid #63f77c;
+    border:2px solid #ffffff;
     transition: all ease .2s;
 }
 .cart--finalizar:hover {
-    background-color:#35af4a;
+    background-color:#ffffff;
+}
+
+.cart--finalizar a{
+    color:#FFF;
+    text-decoration: none;
+    text-shadow: #FFF;
 }
 
 @media (max-width:1000px) {
