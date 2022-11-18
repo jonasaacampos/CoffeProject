@@ -3,11 +3,11 @@ const QSA = (elementos) => document.querySelectorAll(elementos);
 
 let modalQt = 1;
 let modalKey = 0;
-let carrinho = [ ];
+let carrinho = [];
 
 //faz uma lista com todos os produtos
 coffeJson.map(
-    (item, index) => {       
+    (item, index) => {
         let itemCardapio = QS('.models .coffe-item').cloneNode(true);
         itemCardapio.setAttribute('data-key', index);
 
@@ -64,18 +64,18 @@ function closeModal() {
     QS('.coffeWindowArea').style.opacity = 0;
     setTimeout(() => {
         QS('.coffeWindowArea').style.display = 'none';
-    }, 500)   
+    }, 500)
 }
 //sai do modal caso usuário tecle e solte <esc>
-document.addEventListener('keydown', function(event){
-    if(event.key === "Escape"){
+document.addEventListener('keydown', function (event) {
+    if (event.key === "Escape") {
         closeModal()
     }
 });
 
 //gera um array com os botões de cancelar
-QSA('.coffeInfo--cancelButton, .coffeInfo--cancelMobileButton').forEach( 
-    (item) =>  item.addEventListener('click', closeModal) );
+QSA('.coffeInfo--cancelButton, .coffeInfo--cancelMobileButton').forEach(
+    (item) => item.addEventListener('click', closeModal));
 
 //buttons
 
@@ -98,21 +98,21 @@ QSA('.coffeInfo--size').forEach((size) => {
     });
 });
 
-QS('.coffeInfo--addButton').addEventListener('click', () => {  
-    let size = parseInt( QS('.coffeInfo--size.selected').getAttribute('data-key') )
+QS('.coffeInfo--addButton').addEventListener('click', () => {
+    let size = parseInt(QS('.coffeInfo--size.selected').getAttribute('data-key'))
     let identifier = coffeJson[modalKey].id + "-" + size;
-    let identifierKey = carrinho.findIndex((item) => item.identifier == identifier) ;
+    let identifierKey = carrinho.findIndex((item) => item.identifier == identifier);
 
-if (identifierKey > -1) {
-    carrinho[identifierKey].qt += modalQt;
-} else {
-    carrinho.push({
-        identifier,
-        id  : coffeJson[modalKey].id,
-        size,
-        qt: modalQt
-    });
-}   
+    if (identifierKey > -1) {
+        carrinho[identifierKey].qt += modalQt;
+    } else {
+        carrinho.push({
+            identifier,
+            id: coffeJson[modalKey].id,
+            size,
+            qt: modalQt
+        });
+    }
     closeModal();
     updateCarrinho();
 });
@@ -122,7 +122,7 @@ if (identifierKey > -1) {
 QS('.menu-openner').addEventListener('click', () => {
     if (carrinho.length > 0) {
         QS('aside').style.left = 0;
-    } 
+    }
 });
 
 QS('.menu-closer').addEventListener('click', () => {
@@ -137,14 +137,14 @@ function updateCarrinho() {
     if (carrinho.length != 0) {
         QS('aside').classList.add('show');
         QS('.cart').innerHTML = '';
-        
+
         let subtotal = 0
         let desconto = 0
         let total = 0
 
 
         //procura o id e retorna o array inteiro caso exista
-        for(let i in carrinho){
+        for (let i in carrinho) {
             //produtos para carrinho
             let itemAdicionadoAoCarrinho = coffeJson.find((item) => item.id == carrinho[i].id);
             let itemCarrinho = QS('.models .cart--item').cloneNode(true);
@@ -170,15 +170,16 @@ function updateCarrinho() {
 
             itemCarrinho.querySelector('img').src = itemAdicionadoAoCarrinho.img;
             itemCarrinho.querySelector('.cart--item-nome').innerHTML = itemNameCarrinho
-            itemCarrinho.querySelector('.cart--item--qt').innerHTML = carrinho[i].qt        
-            
+            itemCarrinho.querySelector('.cart--item--qt').innerHTML = carrinho[i].qt
+
             itemCarrinho.querySelector('.cart--item-qtmenos').addEventListener('click', () => {
                 if (carrinho[i].qt > 1) {
                     carrinho[i].qt--;
+                    updateCarrinho();
                 } else {
                     carrinho.splice(i, 1);
-                    updateCarrinho();
                 }
+                updateCarrinho();
 
             });
 
@@ -196,11 +197,11 @@ function updateCarrinho() {
         QS('.subtotal span:last-child').innerHTML = `R$ ${subtotal.toFixed(2)}`;
         QS('.desconto span:last-child').innerHTML = `R$ ${desconto.toFixed(2)}`;
         QS('.total span:last-child').innerHTML = `R$ ${total.toFixed(2)}`;
-        
-    //caso carrinho vazio, fecha visualização...
-    }  else {
+
+        //caso carrinho vazio, fecha visualização...
+    } else {
         QS('aside').classList.remove('show');
         QS('aside').style.left = '100vw';
-    } 
+    }
 
 }
