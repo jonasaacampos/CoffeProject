@@ -30,7 +30,7 @@ let coffeJson =
         {
             id: 4,
             name: 'Latte Machiano',
-            img: 'images/cafe-latte.png',
+            img: 'images/cafe-latte-macchiato.png',
             price: 5,
             sizes: ['100ml', '180ml', '300ml'],
             description: 'um tipo de café elegante, consistente e, ao mesmo tempo, suave, que mistura sabores e texturas em sua boca e te dá a sensação de tomar uma bebida aconchegante.'
