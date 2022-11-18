@@ -25,6 +25,8 @@
 
 ## Demo
 
+Veja ao vivo clicando **[aqui](https://jonasaacampos.github.io/CoffeProject/)**
+
 ### Web Version
 
 ![Alt text](/images/demo-web.gif)
